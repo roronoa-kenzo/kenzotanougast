@@ -17,8 +17,9 @@ const config: Config = {
           cream: "#E5FAE3",
           grass: "#82CA1C",
           mint: "#A7F3D0",
-          lemon: "#FDE68A",
+          lemon: "#C48CFF",
           ink: "#1F2937",
+          sea: "#00ADED",
         },
       },
       fontFamily: {

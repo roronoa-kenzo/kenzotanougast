@@ -47,7 +47,7 @@ export function MusicPlayer(): JSX.Element {
         <SectionHeader
           eyebrow="Musique du moment"
           title="Ce qui tourne en boucle"
-          description="Un petit sas sonore qui m’accompagne quand je code."
+          description="La musique qui m’accompagne quand je code en ce moment :)"
         />
 
         <div className="card-wii flex flex-col items-center gap-8 sm:flex-row sm:items-center sm:justify-between">
@@ -62,7 +62,7 @@ export function MusicPlayer(): JSX.Element {
               onMouseEnter={() => play("hover")}
               aria-pressed={isPlaying}
               aria-label={isPlaying ? "Mettre en pause" : "Lancer la musique"}
-              className="relative flex h-16 w-16 items-center justify-center rounded-full bg-wii-grass text-white shadow-wii transition hover:-translate-y-0.5 hover:shadow-wii-hover"
+              className="relative flex h-16 w-16 items-center justify-center rounded-full bg-wii-grass text-white shadow-wii transition hover:-translate-y-0.5 hover:shadow-wii-hover dark:bg-wii-sea dark:text-wii-ink"
             >
               <PlayPauseIcon playing={isPlaying} />
             </button>

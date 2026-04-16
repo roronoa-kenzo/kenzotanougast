@@ -10,7 +10,7 @@ export function Footer(): JSX.Element {
         <div className="flex items-center gap-4">
           <a
             href={`mailto:${profile.email}`}
-            className="transition hover:text-wii-grass"
+            className="transition hover:text-wii-grass dark:hover:text-wii-sea"
           >
             Email
           </a>
@@ -18,7 +18,7 @@ export function Footer(): JSX.Element {
             href={profile.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="transition hover:text-wii-grass"
+            className="transition hover:text-wii-grass dark:hover:text-wii-sea"
           >
             LinkedIn
           </a>
@@ -26,7 +26,7 @@ export function Footer(): JSX.Element {
             href={profile.social.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="transition hover:text-wii-grass"
+            className="transition hover:text-wii-grass dark:hover:text-wii-sea"
           >
             GitHub
           </a>

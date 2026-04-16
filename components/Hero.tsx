@@ -40,6 +40,8 @@ export function Hero(): JSX.Element {
             <span className="h-2 w-2 animate-pulse rounded-full bg-wii-mint" />
             Disponible en freelance
           </motion.p>
+          <span className="ml-3 text-sm font-semibold">by {profile.name}</span>
+          
 
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
@@ -48,7 +50,7 @@ export function Hero(): JSX.Element {
             className="font-display text-[clamp(2.75rem,9vw,7rem)] font-bold leading-[0.95] tracking-tight"
           >
             <span className="block">FULLSTACK</span>
-            <span className="block text-wii-grass">DEVELOPER</span>
+            <span className="block text-wii-grass dark:text-wii-sea">DEVELOPER</span>
           </motion.h1>
 
           <motion.p
@@ -69,7 +71,7 @@ export function Hero(): JSX.Element {
             <a
               href="#projects"
               onClick={() => haptic("light")}
-              className="rounded-full bg-wii-ink px-6 py-3 font-medium text-wii-cloud shadow-wii transition hover:-translate-y-0.5 hover:shadow-wii-hover dark:bg-wii-cloud dark:text-wii-ink"
+              className="rounded-full bg-wii-grass px-6 py-3 font-medium text-wii-cloud shadow-wii transition hover:-translate-y-0.5 hover:shadow-wii-hover dark:bg-wii-sea dark:text-wii-ink"
             >
               Voir les projets
             </a>
@@ -79,6 +81,29 @@ export function Hero(): JSX.Element {
               className="rounded-full border-2 border-wii-ink/10 bg-white/80 px-6 py-3 font-medium shadow-wii transition hover:-translate-y-0.5 hover:shadow-wii-hover dark:border-white/10 dark:bg-white/5"
             >
               Me contacter
+            </a>
+            <a
+              href={profile.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Voir mon GitHub"
+              onClick={() => haptic("light")}
+              className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-wii-ink/10 bg-white/80 shadow-wii transition hover:-translate-y-0.5 hover:shadow-wii-hover dark:border-white/10 dark:bg-white/5"
+            >
+              <Image
+                src="/githubgreen.svg"
+                alt="github"
+                width={34}
+                height={34}
+                className="h-9 w-9 dark:hidden"
+              />
+              <Image
+                src="/githubblue.svg"
+                alt="github"
+                width={34}
+                height={34}
+                className="hidden h-9 w-9 dark:block"
+              />
             </a>
           </motion.div>
         </div>
@@ -111,7 +136,7 @@ function BackgroundBlobs(): JSX.Element {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0">
       <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-wii-sky blur-3xl opacity-60 dark:opacity-20" />
-      <div className="absolute -right-20 top-40 h-72 w-72 rounded-full bg-wii-grass/60 blur-3xl opacity-50 dark:opacity-20" />
+      <div className="absolute -right-20 top-40 h-72 w-72 rounded-full bg-wii-grass/60 blur-3xl opacity-50 dark:bg-wii-sea/60 dark:opacity-20" />
       <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-wii-mint blur-3xl opacity-50 dark:opacity-10" />
     </div>
   );

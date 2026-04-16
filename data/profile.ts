@@ -9,5 +9,5 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/kenzo-tanougast-1267072a2",
     github: "https://github.com/",
   },
-  photo: "/kenzo.png",
+  photo: "/kenzo2.jpg",
 } as const;

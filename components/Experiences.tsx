@@ -9,20 +9,20 @@ export function Experiences(): JSX.Element {
         <SectionHeader
           eyebrow="Expériences"
           title="Là où j’ai laissé des traces"
-          description="Un parcours entre freelance, studios IA et équipes produit."
+          description="Un parcours entre freelance et Startups IA"
         />
 
         <ol className="relative space-y-6 border-l-2 border-dashed border-wii-ink/15 pl-8 dark:border-white/15">
           {experiences.map((experience, index) => (
             <Reveal key={`${experience.company}-${experience.date}`} delay={index * 0.05}>
               <li className="relative">
-                <span className="absolute -left-[41px] top-3 flex h-5 w-5 items-center justify-center rounded-full bg-wii-grass ring-4 ring-wii-cream dark:ring-wii-ink" />
+                <span className="absolute -left-[41px] top-3 flex h-5 w-5 items-center justify-center rounded-full bg-wii-grass ring-4 ring-wii-cream dark:bg-wii-sea dark:ring-wii-ink" />
 
                 <div className="card-wii">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="font-display text-xl font-bold tracking-tight">
                       {experience.role}
-                      <span className="text-wii-grass"> · {experience.company}</span>
+                      <span className="text-wii-grass dark:text-wii-sea"> · {experience.company}</span>
                     </h3>
                     <span className="text-sm font-medium text-wii-ink/60 dark:text-wii-cloud/60">
                       {experience.date}

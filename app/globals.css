@@ -30,6 +30,11 @@
     background: theme("colors.wii.grass");
     color: white;
   }
+
+  .dark ::selection {
+    background: #00aded;
+    color: white;
+  }
 }
 
 @layer components {

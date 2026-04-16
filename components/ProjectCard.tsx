@@ -7,14 +7,7 @@ import type { MouseEvent } from "react";
 import type { Project } from "@/data/projects";
 import { haptic } from "@/lib/haptic";
 import { useUiSound } from "@/lib/useUiSound";
-
-const ACCENT_CLASSES: Record<NonNullable<Project["accent"]>, string> = {
-  sky: "bg-wii-sky",
-  grass: "bg-wii-grass",
-  mint: "bg-wii-mint",
-  lemon: "bg-wii-lemon",
-};
-
+import Image from "next/image";
 type ProjectCardProps = {
   project: Project;
   index: number;
@@ -23,7 +16,6 @@ type ProjectCardProps = {
 export function ProjectCard({ project, index }: ProjectCardProps): JSX.Element {
   const cardRef = useRef<HTMLAnchorElement | null>(null);
   const play = useUiSound();
-  const accentClass = ACCENT_CLASSES[project.accent ?? "sky"];
 
   const handleMouseMove = (event: MouseEvent<HTMLAnchorElement>): void => {
     const card = cardRef.current;
@@ -63,11 +55,14 @@ export function ProjectCard({ project, index }: ProjectCardProps): JSX.Element {
         }}
         className="card-wii group block h-full transition-transform will-change-transform"
       >
-        <div className={`mb-5 h-28 rounded-2xl ${accentClass} relative overflow-hidden`}>
-          <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/30" />
-          <div className="absolute bottom-3 left-4 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-wii-ink">
-            Projet
-          </div>
+        <div className="relative mb-5 h-28 w-full overflow-hidden rounded-2xl">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover"
+          />
         </div>
 
         <h3 className="font-display text-2xl font-bold tracking-tight">
@@ -80,7 +75,10 @@ export function ProjectCard({ project, index }: ProjectCardProps): JSX.Element {
         {project.tags && project.tags.length > 0 ? (
           <div className="mt-4 flex flex-wrap gap-2">
             {project.tags.map((tag) => (
-              <span key={tag} className="chip">
+              <span
+                key={tag}
+                className="chip transition duration-200 hover:-translate-y-0.5 hover:border-wii-ink/20 hover:bg-wii-lemon/70 dark:hover:border-white/20 dark:hover:bg-white/10"
+              >
                 {tag}
               </span>
             ))}

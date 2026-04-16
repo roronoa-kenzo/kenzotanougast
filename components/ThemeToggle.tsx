@@ -27,7 +27,7 @@ export function ThemeToggle(): JSX.Element {
         layout
         transition={{ type: "spring", stiffness: 600, damping: 35 }}
         className={`flex h-9 w-9 items-center justify-center rounded-full text-lg ${
-          isDark ? "ml-auto bg-wii-ink text-wii-lemon" : "bg-wii-lemon text-wii-ink"
+          isDark ? "ml-auto bg-wii-sea text-wii-lemon" : "bg-wii-grass text-white"
         }`}
       >
         {isDark ? "☾" : "☀"}
