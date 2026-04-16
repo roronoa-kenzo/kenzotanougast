@@ -40,9 +40,7 @@ export function Hero(): JSX.Element {
             <span className="h-2 w-2 animate-pulse rounded-full bg-wii-mint" />
             Disponible en freelance
           </motion.p>
-          <span className="ml-3 text-sm font-semibold">by {profile.name}</span>
           
-
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}

@@ -1,0 +1,13 @@
+<svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="m">
+      <!-- zone visible -->
+      <rect width="100" height="100" fill="white"></rect>
+      <!-- zone découpée -->
+      <circle cx="62" cy="50" r="30" fill="black"></circle>
+    </mask>
+  </defs>
+
+  <!-- lune -->
+  <circle cx="50" cy="50" r="30" fill="white" mask="url(#m)"></circle>
+</svg>

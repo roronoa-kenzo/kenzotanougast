@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="4">
+  <!-- cercle central -->
+  <circle cx="50" cy="50" r="20" fill="white"></circle>
+
+  <!-- rayons -->
+  <line x1="50" y1="5" x2="50" y2="20"></line>
+  <line x1="50" y1="80" x2="50" y2="95"></line>
+  <line x1="5" y1="50" x2="20" y2="50"></line>
+  <line x1="80" y1="50" x2="95" y2="50"></line>
+
+  <line x1="20" y1="20" x2="30" y2="30"></line>
+  <line x1="70" y1="70" x2="80" y2="80"></line>
+  <line x1="20" y1="80" x2="30" y2="70"></line>
+  <line x1="70" y1="30" x2="80" y2="20"></line>
+</svg>

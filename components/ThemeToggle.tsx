@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
 import { haptic } from "@/lib/haptic";
@@ -30,7 +31,13 @@ export function ThemeToggle(): JSX.Element {
           isDark ? "ml-auto bg-wii-sea text-wii-lemon" : "bg-wii-grass text-white"
         }`}
       >
-        {isDark ? "☾" : "☀"}
+        <Image
+          src={isDark ? "/moon.svg" : "/sun.svg"}
+          alt=""
+          width={20}
+          height={20}
+          className="h-7 w-7"
+        />
       </motion.span>
     </button>
   );
