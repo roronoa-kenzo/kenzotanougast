@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 247 250 252;
+    --fg: 31 41 55;
+    --accent: 190 227 248;
+  }
+
+  .dark {
+    --bg: 17 24 39;
+    --fg: 241 245 249;
+    --accent: 99 102 241;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    @apply antialiased;
+    background: rgb(var(--bg));
+    color: rgb(var(--fg));
+  }
+
+  ::selection {
+    background: theme("colors.wii.grass");
+    color: white;
+  }
+}
+
+@layer components {
+  .card-wii {
+    @apply rounded-blob border-2 border-wii-ink/10 bg-white/80 p-6 shadow-wii transition-all duration-300;
+    @apply dark:border-white/10 dark:bg-white/5;
+  }
+
+  .card-wii:hover {
+    @apply -translate-y-1 shadow-wii-hover;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-wii-ink/10 bg-wii-cream px-3 py-1 text-xs font-medium text-wii-ink;
+    @apply dark:border-white/10 dark:bg-white/5 dark:text-wii-cloud;
+  }
+}
+
