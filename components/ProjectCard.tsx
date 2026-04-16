@@ -3,11 +3,13 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import type { MouseEvent } from "react";
+import Image from "next/image";
 
 import type { Project } from "@/data/projects";
 import { haptic } from "@/lib/haptic";
+import { useT } from "@/lib/i18n";
 import { useUiSound } from "@/lib/useUiSound";
-import Image from "next/image";
+
 type ProjectCardProps = {
   project: Project;
   index: number;
@@ -16,6 +18,9 @@ type ProjectCardProps = {
 export function ProjectCard({ project, index }: ProjectCardProps): JSX.Element {
   const cardRef = useRef<HTMLAnchorElement | null>(null);
   const play = useUiSound();
+  const t = useT();
+
+  const description = t.projects.items[project.id]?.description ?? "";
 
   const handleMouseMove = (event: MouseEvent<HTMLAnchorElement>): void => {
     const card = cardRef.current;
@@ -69,7 +74,7 @@ export function ProjectCard({ project, index }: ProjectCardProps): JSX.Element {
           {project.title}
         </h3>
         <p className="mt-3 text-wii-ink/70 dark:text-wii-cloud/70">
-          {project.description}
+          {description}
         </p>
 
         {project.tags && project.tags.length > 0 ? (
@@ -86,7 +91,7 @@ export function ProjectCard({ project, index }: ProjectCardProps): JSX.Element {
         ) : null}
 
         <div className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-wii-ink dark:text-wii-cloud">
-          Découvrir
+          {t.projects.discover}
           <span aria-hidden className="transition-transform group-hover:translate-x-1">
             →
           </span>

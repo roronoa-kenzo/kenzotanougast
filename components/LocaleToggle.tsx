@@ -1,23 +1,23 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { useTheme } from "./ThemeProvider";
+
 import { haptic } from "@/lib/haptic";
 import { useT } from "@/lib/i18n";
 import { useUiSound } from "@/lib/useUiSound";
+import { useLocale } from "./LocaleProvider";
 
-export function ThemeToggle(): JSX.Element {
-  const { theme, toggle } = useTheme();
+export function LocaleToggle(): JSX.Element {
+  const { locale, toggle } = useLocale();
   const play = useUiSound();
   const t = useT();
 
-  const isDark = theme === "dark";
+  const isEn = locale === "en";
 
   return (
     <button
       type="button"
-      aria-label={isDark ? t.theme.toLight : t.theme.toDark}
+      aria-label={isEn ? t.locale.toFr : t.locale.toEn}
       onClick={() => {
         play("click");
         haptic("light");
@@ -29,17 +29,11 @@ export function ThemeToggle(): JSX.Element {
       <motion.span
         layout
         transition={{ type: "spring", stiffness: 600, damping: 35 }}
-        className={`flex h-9 w-9 items-center justify-center rounded-full text-lg ${
-          isDark ? "ml-auto bg-wii-sea text-wii-lemon" : "bg-wii-grass text-white"
+        className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold ${
+          isEn ? "ml-auto bg-wii-sea text-wii-ink" : "bg-wii-grass text-white"
         }`}
       >
-        <Image
-          src={isDark ? "/moon.svg" : "/sun.svg"}
-          alt=""
-          width={20}
-          height={20}
-          className="h-7 w-7"
-        />
+        {isEn ? "EN" : "FR"}
       </motion.span>
     </button>
   );

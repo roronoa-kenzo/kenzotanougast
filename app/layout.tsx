@@ -3,9 +3,12 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import type { ReactNode } from "react";
 
 import "./globals.css";
+import { LocaleProvider } from "@/components/LocaleProvider";
+import { LocaleToggle } from "@/components/LocaleToggle";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { profile } from "@/data/profile";
+import { fr } from "@/lib/i18n/fr";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,12 +23,14 @@ const display = Space_Grotesk({
   display: "swap",
 });
 
+const defaultTagline = fr.profile.tagline;
+
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env["NEXT_PUBLIC_SITE_URL"] ?? "http://localhost:3000",
   ),
   title: `${profile.name} — ${profile.title}`,
-  description: profile.tagline,
+  description: defaultTagline,
   keywords: [
     "Kenzo Tanougast",
     "Fullstack Developer",
@@ -37,7 +42,7 @@ export const metadata: Metadata = {
   authors: [{ name: profile.name }],
   openGraph: {
     title: `${profile.name} — ${profile.title}`,
-    description: profile.tagline,
+    description: defaultTagline,
     type: "website",
     locale: "fr_FR",
     images: [{ url: profile.photo }],
@@ -45,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${profile.name} — ${profile.title}`,
-    description: profile.tagline,
+    description: defaultTagline,
   },
 };
 
@@ -69,10 +74,13 @@ export default function RootLayout({
         className={`${inter.variable} ${display.variable} font-sans text-wii-ink dark:text-wii-cloud`}
       >
         <ThemeProvider>
-          <div className="fixed right-4 top-4 z-50">
-            <ThemeToggle />
-          </div>
-          {children}
+          <LocaleProvider>
+            <div className="fixed right-4 top-4 z-50 flex items-center gap-2">
+              <LocaleToggle />
+              <ThemeToggle />
+            </div>
+            {children}
+          </LocaleProvider>
         </ThemeProvider>
       </body>
     </html>

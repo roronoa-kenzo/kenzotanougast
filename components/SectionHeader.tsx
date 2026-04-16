@@ -3,7 +3,7 @@ import { Reveal } from "./Reveal";
 
 type SectionHeaderProps = {
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   description?: ReactNode;
 };
 

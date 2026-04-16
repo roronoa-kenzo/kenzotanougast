@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 
 import { currentTrack } from "@/data/music";
 import { haptic } from "@/lib/haptic";
+import { useT } from "@/lib/i18n";
 import { useUiSound } from "@/lib/useUiSound";
 import { SectionHeader } from "./SectionHeader";
 import { SonicDancer } from "./SonicDancer";
@@ -13,6 +14,7 @@ export function MusicPlayer(): JSX.Element {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const play = useUiSound();
+  const t = useT();
 
   const hasAudio = Boolean(currentTrack.src);
 
@@ -45,9 +47,13 @@ export function MusicPlayer(): JSX.Element {
     >
       <div className="mx-auto max-w-4xl">
         <SectionHeader
-          eyebrow="Musique du moment"
-          title="Ce qui tourne en boucle"
-          description="La musique qui m’accompagne quand je code en ce moment :)"
+          eyebrow={t.music.eyebrow}
+          title={
+            <span className="text-wii-grass dark:text-wii-sea">
+              {t.music.title}
+            </span>
+          }
+          description={t.music.description}
         />
 
         <div className="card-wii flex flex-col items-center gap-8 sm:flex-row sm:items-center sm:justify-between">
@@ -61,7 +67,7 @@ export function MusicPlayer(): JSX.Element {
               }}
               onMouseEnter={() => play("hover")}
               aria-pressed={isPlaying}
-              aria-label={isPlaying ? "Mettre en pause" : "Lancer la musique"}
+              aria-label={isPlaying ? t.music.pause : t.music.play}
               className="relative flex h-16 w-16 items-center justify-center rounded-full bg-wii-grass text-white shadow-wii transition hover:-translate-y-0.5 hover:shadow-wii-hover dark:bg-wii-sea dark:text-wii-ink"
             >
               <PlayPauseIcon playing={isPlaying} />
@@ -69,7 +75,7 @@ export function MusicPlayer(): JSX.Element {
 
             <div>
               <p className="text-xs uppercase tracking-widest text-wii-ink/50 dark:text-wii-cloud/50">
-                Now playing
+                {t.music.nowPlaying}
               </p>
               <p className="font-display text-xl font-bold tracking-tight">
                 {currentTrack.title}

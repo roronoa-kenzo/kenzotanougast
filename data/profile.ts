@@ -1,8 +1,18 @@
-export const profile = {
+export type Profile = {
+  name: string;
+  title: string;
+  location: string;
+  email: string;
+  social: {
+    linkedin: string;
+    github: string;
+  };
+  photo: string;
+};
+
+export const profile: Profile = {
   name: "Kenzo Tanougast",
   title: "FULLSTACK DEVELOPER",
-  tagline:
-    "Développeur freelance passionné d’art, de jeux vidéo et d’interfaces qui font sourire.",
   location: "Nanterre, Île-de-France",
   email: "kenzotanougast@gmail.com",
   social: {
@@ -10,4 +20,4 @@ export const profile = {
     github: "https://github.com/",
   },
   photo: "/kenzo2.jpg",
-} as const;
+};

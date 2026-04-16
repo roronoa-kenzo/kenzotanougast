@@ -6,10 +6,12 @@ import { useRef } from "react";
 
 import { profile } from "@/data/profile";
 import { haptic } from "@/lib/haptic";
+import { useT } from "@/lib/i18n";
 
 export function Hero(): JSX.Element {
   const ref = useRef<HTMLElement | null>(null);
   const prefersReducedMotion = useReducedMotion();
+  const t = useT();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -38,9 +40,9 @@ export function Hero(): JSX.Element {
             className="mb-6 inline-flex items-center gap-2 rounded-full border-2 border-wii-ink/10 bg-white/80 px-4 py-1.5 text-sm font-medium shadow-wii dark:border-white/10 dark:bg-white/5"
           >
             <span className="h-2 w-2 animate-pulse rounded-full bg-wii-mint" />
-            Disponible en freelance
+            {t.hero.available}
           </motion.p>
-          
+
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -57,7 +59,7 @@ export function Hero(): JSX.Element {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="mt-6 max-w-xl text-lg text-wii-ink/70 dark:text-wii-cloud/70 sm:text-xl"
           >
-            {profile.tagline}
+            {t.profile.tagline}
           </motion.p>
 
           <motion.div
@@ -71,20 +73,20 @@ export function Hero(): JSX.Element {
               onClick={() => haptic("light")}
               className="rounded-full bg-wii-grass px-6 py-3 font-medium text-wii-cloud shadow-wii transition hover:-translate-y-0.5 hover:shadow-wii-hover dark:bg-wii-sea dark:text-wii-ink"
             >
-              Voir les projets
+              {t.hero.viewProjects}
             </a>
             <a
               href={`mailto:${profile.email}`}
               onClick={() => haptic("light")}
               className="rounded-full border-2 border-wii-ink/10 bg-white/80 px-6 py-3 font-medium shadow-wii transition hover:-translate-y-0.5 hover:shadow-wii-hover dark:border-white/10 dark:bg-white/5"
             >
-              Me contacter
+              {t.hero.contactMe}
             </a>
             <a
               href={profile.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Voir mon GitHub"
+              aria-label={t.hero.viewGithub}
               onClick={() => haptic("light")}
               className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-wii-ink/10 bg-white/80 shadow-wii transition hover:-translate-y-0.5 hover:shadow-wii-hover dark:border-white/10 dark:bg-white/5"
             >
