@@ -19,6 +19,8 @@ export function Hero(): JSX.Element {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : 120]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.2]);
+  const [firstName, ...lastNameParts] = profile.name.split(" ");
+  const lastName = lastNameParts.join(" ");
 
   return (
     <section
@@ -47,11 +49,20 @@ export function Hero(): JSX.Element {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-[clamp(2.75rem,9vw,7rem)] font-bold leading-[0.95] tracking-tight"
+            className="font-display text-[clamp(2.75rem,9vw,7rem)] font-bold uppercase leading-[0.95] tracking-tight"
           >
-            <span className="block">FULLSTACK</span>
-            <span className="block text-wii-grass dark:text-wii-sea">DEVELOPER</span>
+            <span className="block">{firstName}</span>
+            <span className="block text-wii-grass dark:text-wii-sea">{lastName}</span>
           </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-3 font-display text-[clamp(1.25rem,3vw,2rem)] font-bold uppercase tracking-[0.2em] text-wii-ink/80 dark:text-wii-cloud/80"
+          >
+            {profile.title}
+          </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
