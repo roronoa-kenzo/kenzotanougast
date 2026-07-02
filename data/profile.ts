@@ -17,7 +17,7 @@ export const profile: Profile = {
   email: "kenzotanougast@gmail.com",
   social: {
     linkedin: "https://www.linkedin.com/in/kenzo-tanougast-1267072a2",
-    github: "https://github.com/",
+    github: "https://github.com/roronoa-kenzo",
   },
   photo: "/kenzo2.jpg",
 };
