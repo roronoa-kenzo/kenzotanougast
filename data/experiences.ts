@@ -11,8 +11,8 @@ export const experiences: Experience[] = [
     location: "Puteaux, Île-de-France",
   },
   {
-    id: "cacabox",
-    company: "Cacabox",
+    id: "freelance",
+    company: "TANOUGAST Kenzo",
   },
   {
     id: "estimancy",

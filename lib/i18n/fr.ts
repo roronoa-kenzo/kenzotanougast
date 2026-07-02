@@ -49,11 +49,11 @@ export const fr: Messages = {
         description:
           "Développement de XXIICORE, plateforme SaaS d’analyse vidéo en temps réel propulsée par l’IA. Stack Next.js + React Query côté front, Express (TS) + MongoDB côté back.",
       },
-      cacabox: {
-        role: "Développeur Web — Freelance",
-        date: "Avr. 2025 — Mai 2025",
+      freelance: {
+        role: "Développeur Full Stack — Freelance",
+        date: "Avr. 2026 — Aujourd’hui",
         description:
-          "Conception d’un site interactif pour le groupe populaire de streamers Cacabox. Premier projet freelance mené de bout en bout.",
+          "Je me suis lancé dans la création de sites modernes en Next.js pour des particuliers, ce qui m’a permis d’apprendre à prospecter des clients et à gérer toutes les étapes d’un projet business.",
       },
       estimancy: {
         role: "Développeur Logiciel Full Stack",
