@@ -6,7 +6,7 @@ export type Track = {
 };
 
 export const currentTrack: Track = {
-  title: "CERBERUS",
-  artist: "Biking With Francis",
+  title: "SAG HARBOR",
+  artist: "Tyler, The Creator",
   src: "/music/song.mp3",
 };
