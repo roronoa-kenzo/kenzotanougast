@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { profile } from "@/data/profile";
 import { fr } from "@/lib/i18n/fr";
+import { getPersonJsonLd, siteUrl } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,9 +27,7 @@ const display = Space_Grotesk({
 const defaultTagline = fr.profile.tagline;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env["NEXT_PUBLIC_SITE_URL"] ?? "http://localhost:3000",
-  ),
+  metadataBase: new URL(siteUrl),
   title: `${profile.name} — ${profile.title}`,
   description: defaultTagline,
   keywords: [
@@ -39,11 +38,15 @@ export const metadata: Metadata = {
     "TypeScript",
     "Portfolio",
   ],
-  authors: [{ name: profile.name }],
+  authors: [{ name: profile.name, url: siteUrl }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: `${profile.name} — ${profile.title}`,
     description: defaultTagline,
     type: "website",
+    url: siteUrl,
     locale: "fr_FR",
     images: [{ url: profile.photo }],
   },
@@ -68,8 +71,16 @@ export default function RootLayout({
 }: {
   children: ReactNode;
 }): JSX.Element {
+  const personJsonLd = getPersonJsonLd();
+
   return (
     <html lang="fr" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+      </head>
       <body
         className={`${inter.variable} ${display.variable} font-sans text-wii-ink dark:text-wii-cloud`}
       >
