@@ -27,6 +27,14 @@ export const en: Messages = {
         description:
           "Showcase site built for La Cour des Anges. Playful UI and immersive visitor experience, including appointment booking.",
       },
+      "premiereoptique": {
+        description:
+          "Modern, fluid, and lag-free site built for Premiere Optique. Built with Next.js and ThreeJS, featuring a single-page design, lightweight APIs, and an optimized experience.",
+      },
+      "thecomicbookday": {
+        description:
+          "Heart project that combines my passion for comics and the web: I wanted to digitize my collection and offer reading advice. Built with Next.js connected to Supabase (bucket), and Python scraping via command line.",
+      },
     },
   },
   experiences: {

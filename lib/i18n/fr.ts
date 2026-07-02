@@ -27,6 +27,15 @@ export const fr: Messages = {
         description:
           "Site interactif conçu en vitrine pour la Cour des Anges. Focus UI ludique et expérience immersive côté visiteur, avec gestion de rendez-vous.",
       },
+      "premiereoptique": {
+        description:
+          "Refonte du site vitrine vieillissant de Premiere Optique en freelance. Utilisation de Next.js et ThreeJS pour un site moderne, fluide et sans lags : tout est sur une seule page, APIs légères, et une expérience optimisée.",
+      },
+      "thecomicbookday": {
+        description:
+          "Projet de cœur qui fusionne ma passion pour les comics et le web : j’ai voulu digitaliser ma collection et proposer des conseils de lecture. Réalisé avec Next.js relié à Supabase (bucket), et du scraping Python.",
+     
+      },
     },
   },
   experiences: {
